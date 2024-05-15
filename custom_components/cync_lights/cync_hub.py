@@ -516,10 +516,10 @@ class CyncHub:
     async def _read_tcp_messages(self):
         self.writer.write(self.login_code)
         await self.writer.drain()
-        await self.reader.read(1000)
+        await self.reader.read(2000)
         self.logged_in = True
         while not self.shutting_down:
-            data = await self.reader.read(1000)
+            data = await self.reader.read(2000)
             if len(data) == 0:
                 self.logged_in = False
                 raise LostConnection
@@ -739,6 +739,12 @@ class CyncHub:
                             _LOGGER.info("Ignoring packet of type %d", packet_type)
                 except Exception as e:
                     _LOGGER.error("Failsafe during packet", exc_info=e)
+                    _LOGGER.warning(
+                            "Packet parsing: %s home_devices %s cync_switches %s",
+                            packet,
+                            self.home_devices,
+                            self.cync_switches,
+                        )
                 data = data[packet_length + 5 :]
         raise ShuttingDown
 
