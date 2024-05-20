@@ -4,11 +4,11 @@ Control and monitor the state of your Cync Light switches, bulbs, fan switches a
 
 I have also included access to the built in motion sensors and ambient light sensors for 4-wire switches ONLY. Unfortunately, it appears that the 3-Wire (no neutral wire) motion and light sensors do not report state information to the Cync server, so motion and light sensors are not supported for this particular device type. I also cannot find a way to support the Wireless Motion Sensor as it seems to only comminucate on the bluetooth mesh network created by these devices and not over Wifi. 
 
-If anyone has devices that don't work with this integration (aside from thermostats and cameras which I don't plan to support), let me know by starting an issue and use this python program to download your device information and post it (after redacting any sensitive information):  https://github.com/nikshriv/cync_data 
+If anyone has devices that don't work with this integration (aside from thermostats and cameras which I don't plan to support), let me know by starting an issue and use this python program to download your device information and post it (after redacting any sensitive information):  https://github.com/sytone/cync_data 
 
 ## Installation
 1. Navigate to HACS and add a custom repository. 
-   URL: https://github.com/nikshriv/cync_lights 
+   URL: https://github.com/sytone/cync_lights 
    Category: Integration
 2. Install and restart HA
 3. Close your browser and reopen it, then Navigate back to your HA instance. (This is an issue with HACs)
